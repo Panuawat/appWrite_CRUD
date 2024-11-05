@@ -61,6 +61,7 @@ export async function GET(
       const interpretation = await getInterpretations(id);
       return NextResponse.json(interpretation);
     } catch (error) {
+      console.log(error);
       return NextResponse.json(
         { message: "Failed to get interpretation" },
         { status: 500 }
@@ -75,8 +76,9 @@ export async function GET(
     try {
       const id = params.id;
       const deleted = await deleteInterpretation(id);
-      return NextResponse.json("You are delete successfully");
+      return NextResponse.json({message:"You are delete successfully",res:deleted});
     } catch (error) {
+      console.log(error);
       return NextResponse.json(
         { message: "Failed to delete interpretation" },
         { status: 500 }
@@ -96,6 +98,7 @@ export async function GET(
       return NextResponse.json(interpretation);
       
     } catch (error) {
+      console.log(error);
       return NextResponse.json(
         { message: "Failed to update interpretation" },
         { status: 500 }

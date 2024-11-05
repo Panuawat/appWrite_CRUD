@@ -53,6 +53,7 @@ export async function POST(req: Request) {
       data: res,
     });
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
       { message: "Failed to create interpretation" },
       { status: 500 }
@@ -66,6 +67,7 @@ export async function GET() {
 
     return NextResponse.json(interpretations);
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
       { message: "Failed to get interpretations" },
       { status: 500 }

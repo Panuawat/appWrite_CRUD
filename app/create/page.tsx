@@ -40,6 +40,7 @@ export default function CreatePage() {
       setFormData({ term: "", interpretation: "" }); // Clear form fields
       route.push("/");
     } catch (error) {
+      console.error("Error creating interpretation:", error);
       setError("Failed to create interpretation");
     } finally {
       setIsLoading(false);
